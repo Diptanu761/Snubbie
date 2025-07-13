@@ -8,19 +8,16 @@ const client = new Client({
 
 client.commands = new Collection();
 
-// Load command files
 const commandFiles = fs.readdirSync('./commands');
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 }
 
-// On bot ready
 client.once('ready', () => {
   console.log(`🤖 Logged in as ${client.user.tag}`);
 });
 
-// Handle slash commands
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 

@@ -1,0 +1,5 @@
+# Node modules (big, auto-installed)
+node_modules/
+
+# Environment variables (contains secrets like tokens, API keys)
+.env
